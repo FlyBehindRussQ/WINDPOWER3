@@ -22,10 +22,10 @@ df.to_csv('stl_decomposition.csv')
 
 # plt.show()
 
-trend_strength=max(0,1-df.resid.var()/df.seasonal.var())
-seasonal_strength=max(0,1-df.resid.var()/df.trend.var())
+trend_strength=max(0,1-round(df.resid.var()/df.seasonal.var(),3))
+seasonal_strength=max(0,1-round(df.resid.var()/df.trend.var(),3))
+residual_mean=round(df.resid.mean(),3)
 print('trend_strength:',trend_strength)
 print('seasonal_strength:',seasonal_strength)
-
-print('residual mean:',df.resid.mean())
+print('residual mean:',residual_mean)
 df.resid.hist()
